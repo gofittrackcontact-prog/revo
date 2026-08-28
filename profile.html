@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile - Revo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="sell.html">Sell</a>
+    <a href="my-products.html">My Products</a>
+    <a href="profile.html">Profile</a>
+    <a href="earnings.html">Earnings</a>
+</nav>
+
+<hr>
+
+<h1>My Profile</h1>
+<p class="profile-subtitle">Manage your account and view your stats.</p>
+<div class="profile-grid">
+    <section class="profile-card account-card">
+        <div class="profile-avatar">👤</div>
+<h2>Account Information</h2>
+
+<label>Username</label>
+<br>
+<input type="text" id="username" placeholder="Choose a username">
+
+<br><br>
+
+<label>Email</label>
+<br>
+<input type="email" id="email" placeholder="Email address">
+
+<br><br>
+
+<label>Phone number</label>
+<br>
+<input type="tel" id="phone" placeholder="Phone number">
+
+<br><br>
+
+<button id="saveProfile">Save Profile</button>
+<h2>Payout Information</h2>
+
+<p>Connect a payout account to receive money from your sales.</p>
+
+<button id="connectPayout">
+    Connect Payout Account
+</button>
+</section>
+
+<section class="profile-card stats-card"></section>
+
+<h2>My Stats</h2>
+<div class="profile-stats">
+    <div class="stat">
+        <span id="productsListed">0</span>
+        <p>Products Listed</p>
+    </div>
+
+    <div class="stat">
+        <span id="productsSold">0</span>
+        <p>Products Sold</p>
+    </div>
+</div>
+<p class="member-since">Member since 2026</p>
+</section>
+</div>
+
+<script>
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const saveProfile = document.getElementById('saveProfile');
+const displayUsername = document.getElementById('displayUsername');
+
+saveProfile.addEventListener('click', function() {
+    const profile = {
+        username: username.value,
+        email: email.value,
+        phone: phone.value
+    };
+
+    localStorage.setItem('profile', JSON.stringify(profile));
+
+    alert('Profile saved!');
+});
+const savedProfile = JSON.parse(localStorage.getItem('profile'));
+
+if (savedProfile) {
+    username.value = savedProfile.username || '';
+    email.value = savedProfile.email || '';
+    phone.value = savedProfile.phone || '';
+    displayUsername.textContent = savedProfile.username || 'Not set yet';
+}
+
+const currentProducts =
+    JSON.parse(localStorage.getItem('products')) || [];
+
+const soldProducts =
+    JSON.parse(localStorage.getItem('soldProducts')) || [];
+
+document.getElementById('productsListed').textContent =
+    currentProducts.length;
+
+document.getElementById('productsSold').textContent =
+    soldProducts.length;
+</script>
+
+</body>
+</html>
+</html>

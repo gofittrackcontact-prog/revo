@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Revo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+    <a href="index.html">Home</a>
+   <a href="marketplace.html">Marketplace</a>
+    <a href="sell.html">Sell</a>
+    <a href="my-products.html">My Products</a>
+    <a href="profile.html">Profile</a>
+    <a href="earnings.html">Earnings</a>
+</nav>
+
+<hr>
+    <section class="hero">
+
+    <p class="welcome-text">Welcome back!</p>
+    <h1>Welcome to Revo</h1>
+    <p>Buy and sell stuff easily.</p>
+
+    <button onclick="window.location.href='sell.html'">
+        Sell Something
+    </button>
+    <div class="hero-bag">
+    <div class="bag-handle"></div>
+    <div class="bag-body">
+        <span>↻</span>
+    </div>
+</div>
+</section>
+<div id="sellForm" style="display:none;">
+    <h2>Sell an Item</h2>
+    <input type="file" id="photoInput" accept="image/*">
+    <br><br>
+<img id="preview" style="max-width:300px; display:none;">
+    <br><br>
+    <input type="number" placeholder="Price">
+</div>
+<script>
+const photoInput = document.getElementById('photoInput');
+const preview = document.getElementById('preview');
+
+photoInput.addEventListener('change', function() {
+    const file = this.files[0];
+
+    if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = 'block';
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell - Revo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="sell.html">Sell</a>
+    <a href="my-products.html">My Products</a>
+    <a href="profile.html">Profile</a>
+    <a href="earnings.html">Earnings</a>
+</nav>
+
+<hr>
+<div class="sell-page">
+
+    <h1>Sell an Item</h1>
+    <p class="sell-subtitle">
+        List your item and reach potential buyers on Revo.
+    </p>
+
+
+<label>Upload Image</label>
+
+<div class="upload-box">
+    <div class="upload-icon">▧</div>
+
+    <p>Click to upload your image</p>
+    <span>JPG or PNG</span>
+
+    <input type="file" id="photoInput" accept="image/*">
+</div>
+
+<img id="preview" style="max-width:300px; display:none;">
+
+<br><br>
+
+<label for="productName">What are you selling?</label>
+
+<input
+    type="text"
+    id="productName"
+    class="sell-input"
+    placeholder="Enter a title for your item"
+>
+
+<label for="productPrice">Price (USD)</label>
+
+<input
+    type="number"
+    id="productPrice"
+    class="sell-input price-input"
+    placeholder="0.00"
+    <label for="productCategory">Type of Product</label>
+
+<select id="productCategory" class="sell-input">
+    <option value="Electronics">Electronics</option>
+    <option value="Fashion">Fashion</option>
+    <option value="Home & Living">Home & Living</option>
+    <option value="Books">Books</option>
+    <option value="Sports">Sports</option>
+    <option value="Toys">Toys</option>
+    <option value="Other">Other</option>
+</select>
+>
+
+<br><br>
+
+<button id="listButton">List Item</button>
+
+<script>
+const photoInput = document.getElementById('photoInput');
+const preview = document.getElementById('preview');
+const productName = document.getElementById('productName');
+const productPrice = document.getElementById('productPrice');
+const listButton = document.getElementById('listButton');
+
+photoInput.addEventListener('change', function() {
+    const file = this.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            preview.src = event.target.result;
+            preview.style.display = 'block';
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+listButton.addEventListener('click', function() {
+    const name = productName.value;
+    const price = productPrice.value;
+    const category = document.getElementById('productCategory').value;
+    const image = preview.src;
+    if (name && price) {
+        const product = {
+    name: name,
+    price: price,
+    image: image,
+    category: category
+};
+
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+
+        products.push(product);
+
+        localStorage.setItem('products', JSON.stringify(products));
+
+        alert('Product saved!');
+    } else {
+        alert('Please fill in the product name and price.');
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Earnings - Revo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="sell.html">Sell</a>
+    <a href="my-products.html">My Products</a>
+    <a href="profile.html">Profile</a>
+    <a href="earnings.html">Earnings</a>
+</nav>
+
+<hr>
+
+<h1>Earnings</h1>
+<p class="earnings-subtitle">Track your income and sales performance.</p>
+
+<h2>Total Earned</h2>
+<p>$<span id="totalEarned">0.00</span></p>
+<div class="earnings-grid">
+    <section class="earnings-summary">
+
+<p>Items sold: <span id="itemsSold">0</span></p>
+</section>
+<section class="earnings-overview">
+    <h2>Earnings Overview</h2>
+    <p>Your earnings over time.</p>
+
+    <div class="earnings-chart-placeholder" id="earningsChart">
+</div>
+</section>
+
+</div>
+
+<script>
+const soldProducts =
+    JSON.parse(localStorage.getItem('soldProducts')) || [];
+
+let total = 0;
+
+soldProducts.forEach(function(product) {
+    total += Number(product.price);
+    const earningsChart = document.getElementById('earningsChart');
+
+soldProducts.forEach(function(product) {
+    const bar = document.createElement('div');
+    bar.className = 'earnings-bar';
+    bar.style.height = Math.min(Number(product.price) * 2, 220) + 'px';
+    bar.title = product.name + ' - $' + product.price;
+
+    earningsChart.appendChild(bar);
+});
+});
+
+document.getElementById('totalEarned').textContent =
+    total.toFixed(2);
+
+document.getElementById('itemsSold').textContent =
+    soldProducts.length;
+</script>
+
+</body>
+</html>

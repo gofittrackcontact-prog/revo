@@ -1,0 +1,650 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    color: #171725;
+}
+
+/* NAVBAR */
+nav {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    background-color: white;
+    border-bottom: 1px solid #eeeeee;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 38px;
+    padding: 32px 0;
+}
+
+nav a:hover {
+    color: #5b2bbf;
+}
+.hero {
+    margin: 50px 35px;
+    padding: 70px;
+    min-height: 420px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #faf8ff 55%,
+        #f1edff 100%
+    );
+
+    border: 1px solid #eeeeee;
+    border-radius: 24px;
+
+    box-shadow: 0 8px 30px rgba(91, 43, 191, 0.08);
+}
+
+.welcome-text {
+    color: #5b2bbf;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 0 0 18px 0;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+.hero button {
+    margin-top: 20px;
+    padding: 14px 26px;
+
+    background: #5b2bbf;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: #482099;
+}
+/* REVO HERO BAG */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bag {
+    position: absolute;
+    right: 12%;
+    top: 50%;
+    transform: translateY(-45%);
+    width: 260px;
+    height: 300px;
+}
+
+.bag-body {
+    position: absolute;
+    bottom: 0;
+    width: 260px;
+    height: 220px;
+
+    background: linear-gradient(135deg, #7651dc, #a99af5);
+    border-radius: 12px 12px 20px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 20px 45px rgba(91, 43, 191, 0.18);
+}
+
+.bag-body span {
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.bag-handle {
+    position: absolute;
+    top: 0;
+    left: 55px;
+
+    width: 150px;
+    height: 130px;
+
+    border: 10px solid #2e176e;
+    border-bottom: none;
+    border-radius: 80px 80px 0 0;
+
+    z-index: 2;
+}
+.sell-page {
+    max-width: 760px;
+    margin: 40px 24px;
+}
+
+.sell-page h1 {
+    margin: 0 0 8px 0;
+    font-size: 34px;
+}
+
+.sell-subtitle {
+    margin-bottom: 32px;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+.upload-box {
+    position: relative;
+    margin-top: 10px;
+    padding: 42px 20px;
+    border: 2px dashed #cfc6ff;
+    border-radius: 14px;
+    text-align: center;
+    background: #fbfaff;
+}
+
+.upload-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee9ff;
+    color: #5b2bbf;
+    font-size: 28px;
+}
+
+.upload-box p {
+    margin: 0 0 6px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.upload-box span {
+    display: block;
+    margin-bottom: 14px;
+    color: #8a8a9a;
+    font-size: 14px;
+}
+
+.upload-box input[type="file"] {
+    cursor: pointer;
+}
+.sell-page label {
+    display: block;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.sell-input {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1px solid #d9dce5;
+    border-radius: 10px;
+    background: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.sell-input:focus {
+    border-color: #6b3fd6;
+    box-shadow: 0 0 0 3px rgba(107, 63, 214, 0.1);
+}
+
+.price-input {
+    max-width: 360px;
+}
+
+#listButton {
+    padding: 14px 28px;
+    background: #5b2bbf;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#listButton:hover {
+    background: #482099;
+}
+/* MARKETPLACE */
+
+.marketplace-page {
+    padding: 45px 55px;
+}
+
+.marketplace-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.marketplace-header h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.marketplace-header p {
+    color: #6b7280;
+    margin-top: 8px;
+}
+
+.market-search {
+    width: 480px;
+    max-width: 100%;
+    padding: 16px 20px;
+
+    border: 1px solid #dedee8;
+    border-radius: 12px;
+
+    background: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.market-search:focus {
+    border-color: #6b3fd6;
+    box-shadow: 0 0 0 3px rgba(107, 63, 214, 0.1);
+}
+
+
+/* CATEGORY BUTTONS */
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 35px 0;
+}
+
+.category {
+    padding: 11px 20px;
+
+    background: white;
+    color: #333;
+
+    border: 1px solid #e2e2e8;
+    border-radius: 999px;
+
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.category:hover {
+    border-color: #6b3fd6;
+    color: #5b2bbf;
+}
+
+.category.active {
+    background: #6435d5;
+    color: white;
+    border-color: #6435d5;
+}
+
+
+/* PRODUCT GRID */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.product-grid > div {
+    background: white;
+    padding: 10px;
+
+    border: 1px solid #e8e8ee;
+    border-radius: 14px;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.product-grid > div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.product-grid img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-grid h3 {
+    margin: 14px 8px 8px;
+    font-size: 18px;
+}
+
+.product-grid p {
+    margin: 8px;
+    color: #6435d5;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-grid button {
+    width: calc(100% - 16px);
+    margin: 10px 8px;
+
+    padding: 11px;
+
+    background: #6435d5;
+    color: white;
+
+    border: none;
+    border-radius: 9px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+.my-products-page {
+    padding: 45px 55px;
+}
+
+.my-products-page h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.my-products-subtitle {
+    color: #6b7280;
+    margin-top: 8px;
+    margin-bottom: 35px;
+}
+#productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+#productList > div {
+    background: white;
+    padding: 10px;
+    border: 1px solid #e8e8ee;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+#productList img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+#productList h3 {
+    margin: 14px 8px 8px;
+    font-size: 18px;
+}
+
+#productList p {
+    margin: 8px;
+    color: #6435d5;
+    font-size: 18px;
+    font-weight: bold;
+}
+#productList button {
+    width: calc(100% - 16px);
+    margin: 10px 8px;
+    padding: 11px;
+    background: #f3f0ff;
+    color: #5b2bbf;
+    border: none;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#productList button:hover {
+    background: #e5ddff;
+}
+.profile-page {
+    padding: 45px 55px;
+}
+
+.profile-page h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.profile-subtitle {
+    color: #6b7280;
+    margin-top: 8px;
+    margin-bottom: 35px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 28px;
+    align-items: start;
+}
+.profile-card {
+    background: white;
+    border: 1px solid #e8e8ee;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.profile-card h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+.account-card input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 8px;
+    margin-bottom: 18px;
+    border: 1px solid #d9dce5;
+    border-radius: 10px;
+    background: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.account-card input:focus {
+    border-color: #6435d5;
+    box-shadow: 0 0 0 3px rgba(100, 53, 213, 0.1);
+}
+#saveProfile {
+    width: 100%;
+    padding: 14px;
+    background: #6435d5;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#saveProfile:hover {
+    background: #5127b5;
+}
+.stats-card {
+    text-align: center;
+}
+
+.stats-card #displayUsername {
+    font-size: 22px;
+    font-weight: bold;
+    color: #171725;
+    margin-bottom: 25px;
+}
+
+.stats-card p {
+    padding: 14px 0;
+    margin: 0;
+    border-bottom: 1px solid #eeeeee;
+}
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #eee9ff;
+    color: #6435d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+.profile-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat {
+    padding: 18px 10px;
+    background: #faf9ff;
+    border-radius: 12px;
+}
+
+.stat span {
+    display: block;
+    color: #6435d5;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.stat p {
+    border: none;
+    padding: 5px 0 0;
+    font-size: 13px;
+    color: #6b7280;
+}
+.member-since {
+    margin-top: 20px !important;
+    padding-top: 15px !important;
+    color: #8a8a9a !important;
+    font-size: 14px !important;
+    border-top: 1px solid #eeeeee !important;
+    border-bottom: none !important;
+}
+.earnings-page {
+    padding: 45px 55px;
+}
+
+.earnings-page h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.earnings-subtitle {
+    color: #6b7280;
+    margin-top: 8px;
+    margin-bottom: 35px;
+}
+
+.earnings-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 28px;
+    align-items: start;
+}
+.earnings-summary,
+.earnings-overview {
+    background: white;
+    border: 1px solid #e8e8ee;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.earnings-summary h2,
+.earnings-overview h2 {
+    margin-top: 0;
+}
+#totalEarned {
+    display: block;
+    margin: 10px 0 25px;
+    color: #6435d5;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+#itemsSold {
+    color: #6435d5;
+    font-size: 24px;
+    font-weight: bold;
+}
+.earnings-chart-placeholder {
+    height: 280px;
+    margin-top: 25px;
+    border-radius: 12px;
+    background: linear-gradient(
+        180deg,
+        #f5f1ff 0%,
+        #ffffff 100%
+    );
+    border: 1px solid #eee9ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #8a8a9a;
+    font-size: 15px;
+}
+#earningsChart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 16px;
+    padding: 30px;
+}
+
+.earnings-bar {
+    width: 45px;
+    min-height: 8px;
+    background: #6435d5;
+    border-radius: 8px 8px 3px 3px;
+}
+#connectPayout {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    background: white;
+    color: #6435d5;
+    border: 1px solid #6435d5;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#connectPayout:hover {
+    background: #f5f1ff;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marketplace - Revo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="sell.html">Sell</a>
+    <a href="my-products.html">My Products</a>
+    <a href="profile.html">Profile</a>
+    <a href="earnings.html">Earnings</a>
+</nav>
+
+<hr>
+
+<main class="marketplace-page">
+
+    <div class="marketplace-header">
+        <div>
+            <h1>Marketplace</h1>
+            <p>Find something you want.</p>
+        </div>
+
+        <input
+            type="text"
+            id="searchInput"
+            class="market-search"
+            placeholder="Search for items..."
+        >
+    </div>
+
+    <div class="categories">
+        <button class="category active">All</button>
+        <button class="category">Electronics</button>
+        <button class="category">Fashion</button>
+        <button class="category">Home & Living</button>
+        <button class="category">Books</button>
+        <button class="category">Sports</button>
+        <button class="category">Toys</button>
+        <button class="category">Other</button>
+    </div>
+
+    <div id="marketplaceList" class="product-grid"></div>
+
+</main>
+
+<div id="marketplaceList"></div>
+</body>
+<script>
+const marketplaceList = document.getElementById('marketplaceList');
+
+let products = JSON.parse(localStorage.getItem('products')) || [];
+
+products.forEach(function(product, index) {
+    const item = document.createElement('div');
+
+    item.innerHTML = `
+    <h3>${product.name}</h3>
+    <button onclick="buyProduct(${index})">Buy</button>
+
+    ${product.image ? `
+        <img src="${product.image}" style="max-width:300px;">
+    ` : ''}
+
+    <p>Price: ${product.price}</p>
+    <hr>
+`;
+
+    marketplaceList.appendChild(item);
+});
+function buyProduct(index) {
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+    let soldProducts = JSON.parse(localStorage.getItem('soldProducts')) || [];
+
+    const boughtProduct = products[index];
+
+    soldProducts.push(boughtProduct);
+    products.splice(index, 1);
+
+    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem('soldProducts', JSON.stringify(soldProducts));
+
+    alert('Product marked as sold!');
+    location.reload();
+}
+
+const searchInput = document.getElementById('searchInput');
+
+searchInput.addEventListener('input', function() {
+    const searchText = searchInput.value.toLowerCase();
+
+    const productCards = document.querySelectorAll('#marketplaceList > div');
+
+    productCards.forEach(function(card) {
+        const productName = card.querySelector('h3').textContent.toLowerCase();
+
+        if (productName.includes(searchText)) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
+const categoryButtons = document.querySelectorAll('.category');
+
+categoryButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        const selectedCategory = button.textContent.trim();
+
+        categoryButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+
+        button.classList.add('active');
+
+        const productCards = document.querySelectorAll('#marketplaceList > div');
+
+        productCards.forEach(function(card, index) {
+            const product = products[index];
+
+            if (
+                selectedCategory === 'All' ||
+                product.category === selectedCategory
+            ) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+</script>
+</html>

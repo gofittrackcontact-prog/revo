@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Products - Revo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="marketplace.html">Marketplace</a>
+    <a href="sell.html">Sell</a>
+    <a href="my-products.html">My Products</a>
+    <a href="profile.html">Profile</a>
+    <a href="earnings.html">Earnings</a>
+</nav>
+
+<hr>
+
+<main class="my-products-page">
+    <h1>My Products</h1>
+    <p class="my-products-subtitle">Manage the items you've listed on Revo.</p>
+    <div id="productList"></div>
+</main>
+
+</body>
+<script>
+const productList = document.getElementById('productList');
+
+let products = JSON.parse(localStorage.getItem('products')) || [];
+
+products.forEach(function(product, index) {
+    const item = document.createElement('div');
+
+    item.innerHTML = `
+        <h3>${product.name}</h3>
+
+        ${product.image ? `
+            <img src="${product.image}" style="max-width:300px;">
+        ` : ''}
+
+        <p>Price: ${product.price}</p>
+
+        <button onclick="deleteProduct(${index})">
+            Delete
+        </button>
+
+        <hr>
+    `;
+
+    productList.appendChild(item);
+});
+function deleteProduct(index) {
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+
+    products.splice(index, 1);
+
+    localStorage.setItem('products', JSON.stringify(products));
+
+    location.reload();
+}
+</script>
+</html>
